@@ -13,7 +13,6 @@ def get_unique_industries(path: str) -> List[str]:
         industries[content] += 1
 
     remove_empty = list(filter(None, industries))
-    print(remove_empty)
     return remove_empty
 
 
