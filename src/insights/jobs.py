@@ -10,26 +10,20 @@ def read(path: str) -> List[Dict]:
         jobs_reader = csv.DictReader(file, delimiter=",", quotechar='"')
 
         array = list(jobs_reader)
-
     return array
 
 
 def get_unique_job_types(path: str) -> List[str]:
-    """Checks all different job types and returns a list of them
+    jobs = read(path)
 
-    Must call `read`
+    job_types = {}
+    for row in jobs:
+        content = row["job_type"]
+        if content not in job_types:
+            job_types[content] = 0
+        job_types[content] += 1
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    raise NotImplementedError
+    return job_types
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
