@@ -1,5 +1,5 @@
 from typing import Union, List, Dict
-from jobs import read
+from src.insights.jobs import read
 
 
 def get_max_salary(path: str) -> int:

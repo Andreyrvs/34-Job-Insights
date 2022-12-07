@@ -13,7 +13,7 @@ def read(path: str) -> List[Dict]:
     return array
 
 
-def get_unique_job_types(path: str) -> List[str]:
+def get_unique_job_types(path: str):
     jobs = read(path)
 
     job_types = {}
