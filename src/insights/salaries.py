@@ -1,22 +1,26 @@
 from typing import Union, List, Dict
+from jobs import read
 
 
 def get_max_salary(path: str) -> int:
-    """Get the maximum salary of all jobs
+    jobs = read(path)
 
-    Must call `read`
+    salaries = []
+    for row in jobs:
+        content = row["max_salary"]
+        if content != "":
+            salaries.append(content)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    convert_to_integer = [
+        int(number) for number in salaries if number.isdigit()
+    ]
 
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+    max_salary = convert_to_integer[0]
+    for number in convert_to_integer:
+        if number > max_salary:
+            max_salary = number
+
+    return max_salary
 
 
 def get_min_salary(path: str) -> int:
