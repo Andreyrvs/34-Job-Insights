@@ -24,21 +24,24 @@ def get_max_salary(path: str) -> int:
 
 
 def get_min_salary(path: str) -> int:
-    """Get the minimum salary of all jobs
+    jobs = read(path)
 
-    Must call `read`
+    salaries = []
+    for row in jobs:
+        content = row["min_salary"]
+        if content != "":
+            salaries.append(content)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    convert_to_integer = [
+        int(number) for number in salaries if number.isdigit()
+    ]
 
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+    min_salary = convert_to_integer[0]
+    for number in convert_to_integer:
+        if number < min_salary:
+            min_salary = number
+
+    return min_salary
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
