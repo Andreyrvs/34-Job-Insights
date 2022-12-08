@@ -45,20 +45,19 @@ def get_min_salary(path: str) -> int:
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
-    if "min_salary" not in job or "max_salary" not in job:
-        raise ValueError("Não tem as chaves necessarias")
-    elif (
-        type(job["min_salary"]) is not int
+    if (
+        "min_salary" not in job
+        or "max_salary" not in job
+        or type(job["min_salary"]) is not int
         or type(job["max_salary"]) is not int
+        or job["min_salary"] > job["max_salary"]
     ):
-        raise ValueError("Os valores devem ser inteiros")
-    elif job["min_salary"] > job["max_salary"]:
-        raise ValueError("min_salary é maior que max_salary")
+        raise ValueError("Ta tudo Errado 👽👽👽👽")
+
     try:
-        range_minus = int(salary) >= int(job["min_salary"])
-        range_plus = int(salary) <= int(job["max_salary"])
-        range_of_salary = range_plus and range_minus
+        range_of_salary = int(salary) >= int(job["min_salary"]) and int(salary) <= int(job["max_salary"])
         return range_of_salary
+
     except TypeError:
         print("🔥🔥🔥🔥🔥🔥🔥")
         pass
