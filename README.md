@@ -38,7 +38,7 @@ Adquiri essas habilidades ao desenvolver esse projeto:
 - clone o projeto:
 
   ```bash
-  git clone git@github.com:Andreyrvs/34-Job-Insights.git
+    git clone git@github.com:Andreyrvs/34-Job-Insights.git
   ```
 
 > Aplicação
@@ -46,19 +46,19 @@ Adquiri essas habilidades ao desenvolver esse projeto:
 1. **Entre no diretório**
 
    ```bash
-   cd 34-Job-Insights
+    cd 34-Job-Insights
    ```
 
 2. **Criar o ambiente virtual**
 
    ```bash
-   python3 -m venv .venv
+    python3 -m venv .venv
    ```
 
 3. **Ativar o ambiente virtual**
 
    ```bash
-   source .venv/bin/activate
+    source .venv/bin/activate
    ```
 
 4. **Instalar as dependências no ambiente virtual**
@@ -69,9 +69,28 @@ Adquiri essas habilidades ao desenvolver esse projeto:
 
 ## Executando aplicação
 
+<!--
+  ```bash
+
+  ```
+-->
+
 - Para rodar a aplicação:
 
   ```bash
-  cd src/
-  python3 -u
+  python3 -m flask run
+  ```
+
+## Executando Testes
+
+- Para rodar todos os testes:
+
+  ```bash
+  python3 -m pytest
+  ```
+
+- Para rodar um arquivo especifico:
+
+  ```bash
+  python3 -m pytest tests/counter/test_counter.py
   ```
